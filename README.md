@@ -96,7 +96,9 @@ sh install_spinnaker.sh
 ```
 sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 sudo reboot
-sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.sh
+sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+conda activate spinnaker_py37
+sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 ```
 
 ![Example Camera Acquisition Output 1](images/example_acquisition1.png)
