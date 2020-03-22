@@ -8,14 +8,8 @@
 spinnaker_file=spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
 # Spinnaker Python Wrapper file to download
 python_spinnaker_file=spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux-x86.tar.gz
-
-### RPI4 FILES ###
-# Spinnaker SDK file to download
-# spinnaker_file=spinnaker-1.27.0.48-Ubuntu18.04-arm64-pkg.tar.gz
-# # Spinnaker Python Wrapper file to download
-# python_spinnaker_file=spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_aarch64.tar.gz
-
-
+# Unzipped Spinnaker SDK folder
+spinnaker_folder=spinnaker-1.27.0.48-amd64
 
 # Default conda environment
 conda_env=spinnaker_py37
@@ -93,15 +87,15 @@ fi
 
 
 printf "\nUnzip Spinnaker SDK...\n"
-tar -xzf $download_loc/spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz -C $unzip_loc
+tar -xzf $download_loc/${spinnaker_file} -C $unzip_loc
 
 printf "\nInstall required dependencies for Spinnaker...\n"
-sudo apt-get install libavcodec57 libavformat57 libswscale4 libswresample2 libavutil55 libusb-1.0-0 libgtkmm-2.4-dev
+sudo apt-get install libavcodec57 libavformat57 libswscale4 libswresample2 libavutil55 libusb-1.0-0 libgtkmm-2.4-dev -y
 
 printf "\nInstall Spinnaker...\n"
 printf "Enter 'yes' to all prompts, and add this user to the usergroup...\n\n"
-cd $unzip_loc/spinnaker-1.27.0.48-amd64/
-sudo sh $unzip_loc/spinnaker-1.27.0.48-amd64/install_spinnaker.sh
+cd $unzip_loc/${spinnaker_folder}/
+sudo sh $unzip_loc/${spinnaker_folder}/install_spinnaker.sh
 
 printf "\nSpinnaker is installed. Now installing Spinnaker Python wrapper.\n"
 sleep 5
@@ -110,7 +104,7 @@ printf "\nCreate directory to store Spinnaker Python wrapper...\n"
 mkdir $unzip_loc/python37-spinnaker
 
 printf "\nUnzip Spinnaker Python wrapper...\n"
-tar -xzf $download_loc/spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz -C $unzip_loc/python37-spinnaker
+tar -xzf $download_loc/${python_spinnaker_file} -C $unzip_loc/python37-spinnaker
 
 printf "\nInstall necessary packages to run Python scripts with Spinnaker...\n"
 
@@ -137,20 +131,6 @@ printf "\nExpand memory limit to allow for camera to open..."
 sudo echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb
 
 printf "\nSpinnaker Python wrapper is installed."
-
-
-printf "\nThis file will install the necessary dependencies for The EasyPySpin library..."
-printf "\nCloning the EasyPySpin repository..."
-cd /home/$USER/Desktop/MPL-Research
-git clone https://github.com/elerac/EasyPySpin.git
-
-printf "\nInstalling OpenCV..."
-conda install opencv -y
-
-printf "\nAll dependencies installed. Thank you, goodbye."
 printf "\nAnaconda, the conda environment for Spinnaker, and Spinnaker have been installed successfully...."
 printf "\nPlease begin acquiring images..."
 printf "\nThank you, goodbye.\n"
-printf "\nThe system will now reboot in 10 seconds for changes to take effect...\n"
-sleep 10
-sudo reboot

@@ -10,7 +10,7 @@ printf "\nActivate the conda environment...\n"
 conda activate ${conda_env}
 
 printf "\nCloning the EasyPySpin repository...\n"
-cd /home/$USER/Desktop/MPL-Research/Spinnaker
+cd /home/$USER/Desktop/LattePanda-Ubuntu18.04-Spinnaker-Installation
 git submodule add https://github.com/elerac/EasyPySpin.git
 
 printf "\nInstalling OpenCV...\n"
