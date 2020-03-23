@@ -104,6 +104,9 @@ sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 ![Example Camera Acquisition Output 1](images/example_acquisition1.png)
 ![Example Camera Acquisition Output 2](images/example_acquisition2.png)
 
+## Setting Camera Settings
+This [link)[https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture-set] contains all of the camera settings that can be set using OpenCV.
+
 ## Errors
 
 1. If cannot SSH into SBC:
