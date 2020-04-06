@@ -114,6 +114,7 @@ This [link](https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_
 2. To handle memory issue and "Error: Spinnaker: Could not Start Acquisition [-1010]" error run this command (must be done every time, can set it indefinitely by using README steps):
     - $ sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 3. Don’t use sudo if not necessary
+4. May need to insert dummy HDMI plug if using headless for LattePanda.
 
 ### System Notes
 
