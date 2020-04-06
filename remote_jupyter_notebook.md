@@ -1,6 +1,6 @@
 # Running a Jupyter Notebook for a Remote Host on Local Host
 
-This is guide on how to open a Jupyter Notebook on your local machine for a remote machine. It is adapted from this [tutorial](https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/) by Lj Miranda.
+This is guide on how to open a Jupyter Notebook on your local machine for a remote machine. It is adapted from this [tutorial](https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/) by Lj Miranda. Also thank you to Noopur R K for this (tutorial)[https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084] about how to add your Conda environment to Jupyter Notebooks.
 
 ## Steps
 1. Login into your remote machine using ssh.
