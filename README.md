@@ -94,7 +94,6 @@ sh install_spinnaker.sh
 ```
 7. Begin acquiring images. Confirm the camera is plugged into the black USB2.0 port.
 ```
-sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 sudo reboot
 sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 conda activate spinnaker_py37
