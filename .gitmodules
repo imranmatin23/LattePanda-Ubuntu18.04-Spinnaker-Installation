@@ -1,0 +1,3 @@
+[submodule "EasyPySpin"]
+	path = EasyPySpin
+	url = https://github.com/elerac/EasyPySpin.git
