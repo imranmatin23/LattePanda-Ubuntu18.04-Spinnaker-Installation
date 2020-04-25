@@ -14,6 +14,8 @@ cd /home/$USER/Desktop/LattePanda-Ubuntu18.04-Spinnaker-Installation
 git submodule add https://github.com/elerac/EasyPySpin.git
 
 printf "\nInstalling OpenCV...\n"
-conda install opencv -y
+# conda install opencv -y
+conda remove opencv -y
+conda install -c conda-forge opencv=4.1.0 -y
 
 printf "\nAll dependencies installed. Thank you, goodbye.\n"
