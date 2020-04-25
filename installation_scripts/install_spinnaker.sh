@@ -9,8 +9,11 @@ spinnaker_file=spinnaker-2.0.0.109-Ubuntu18.04-amd64-pkg.tar.gz
 
 # Spinnaker Python Wrapper file to download
 python_spinnaker_file=spinnaker_python-2.0.0.109-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
+python_spinnaker_whl=spinnaker_python-2.0.0.109-cp37-cp37m-linux_x86_64.whl
+
 # Unzipped Spinnaker SDK folder
 spinnaker_folder=spinnaker-2.0.0.109-amd64
+python_spinnaker_folder=python37-spinnaker
 
 # Default conda environment
 conda_env=spinnaker_py37
@@ -102,10 +105,10 @@ printf "\nSpinnaker is installed. Now installing Spinnaker Python wrapper.\n"
 sleep 5
 
 printf "\nCreate directory to store Spinnaker Python wrapper...\n"
-mkdir $unzip_loc/python37-spinnaker
+mkdir $unzip_loc/${python_spinnaker_folder}
 
 printf "\nUnzip Spinnaker Python wrapper...\n"
-tar -xzf $download_loc/${python_spinnaker_file} -C $unzip_loc/python37-spinnaker
+tar -xzf $download_loc/${python_spinnaker_file} -C $unzip_loc/${python_spinnaker_folder}
 
 printf "\nInstall necessary packages to run Python scripts with Spinnaker...\n"
 
@@ -122,8 +125,8 @@ printf "\nInstall Pillow...\n"
 conda install Pillow -y
 
 printf "\nInstall Spinnaker Python wrapper from .whl...\n"
-cd $unzip_loc/python37-spinnaker/
-pip install $unzip_loc/python37-spinnaker/spinnaker_python-1.27.0.48-cp37-cp37m-linux_x86_64.whl
+cd $unzip_loc/${python_spinnaker_folder}/
+pip install $unzip_loc/${python_spinnaker_folder}/${python_spinnaker_whl}
 
 printf "\nConfirm that PySpin module was correctly installed, it should exit silently..."
 python -c 'import PySpin'
