@@ -5,11 +5,12 @@
 
 ### LATTEPANDA FILES ###
 # Spinnaker SDK file to download
-spinnaker_file=spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
+spinnaker_file=spinnaker-2.0.0.109-Ubuntu18.04-amd64-pkg.tar.gz
+
 # Spinnaker Python Wrapper file to download
-python_spinnaker_file=spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
+python_spinnaker_file=spinnaker_python-2.0.0.109-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
 # Unzipped Spinnaker SDK folder
-spinnaker_folder=spinnaker-1.27.0.48-amd64
+spinnaker_folder=spinnaker-2.0.0.109-amd64
 
 # Default conda environment
 conda_env=spinnaker_py37
