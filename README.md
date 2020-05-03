@@ -13,8 +13,8 @@ These downloads can be either on your LOCAL COMPUTER and then use SCP to transfe
 
 **Spinnaker SDK Option 1:** Download Spinnaker 1.27.0.48 SDK installation files from IMT Lab Dropbox.
 
-1. spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
-2. spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
+1. spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz 
+2. spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
 
 **Spinnaker SDK Option 2:** Follow links below to download Spinnaker 1.27.0.48 SDK installation files independently. Note, these links may lead to newer releases of the software and may cause issues during installation.
 
