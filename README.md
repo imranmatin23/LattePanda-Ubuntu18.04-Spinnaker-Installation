@@ -55,7 +55,7 @@ sudo ufw allow ssh
 ```
 ssh [USER]@[IP_ADDRESS]
 ```
-12. Check if the system is running other apt update processes.
+12. Check if the system is running other apt update processes. If it is running, it will force you to wait until it is finished to run Step 13.
 ```
 ps aux | grep -i apt
 ```
@@ -68,7 +68,7 @@ sudo apt update -y && sudo apt upgrade -y
 
 A step by step guide that tell you how to install Spinnaker.
 
-1. Install necessary libraries.
+1. Install necessary Linux commands.
 ```
 sudo apt install git curl vim -y
 ```
@@ -81,7 +81,7 @@ git clone https://github.com/imranmatin23/LattePanda-Ubuntu18.04-Spinnaker-Insta
 ```
 sh install_anaconda.sh && exit
 ```
-4. Login on your remote computer.
+4. Login into the LattePanda from your remote computer using this command.
 ```
 ssh -X [USER]@[IP_ADDRESS]
 ```
