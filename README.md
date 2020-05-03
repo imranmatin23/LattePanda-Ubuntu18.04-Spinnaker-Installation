@@ -51,9 +51,9 @@ sudo systemctl enable ssh
 sudo systemctl status ssh
 sudo ufw allow ssh
 ```
-11. Login on your remote computer.
+11. Login into the LattePanda from your remote computer using this command.
 ```
-ssh -X [USER]@[IP_ADDRESS]
+ssh [USER]@[IP_ADDRESS]
 ```
 12. Check if the system is running other apt update processes.
 ```
