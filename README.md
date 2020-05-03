@@ -1,28 +1,25 @@
 # Ubuntu Desktop 18.04 and Spinnaker 1.27.0.48 SDK Installation on LattePanda Steps
 
-This is a guide to installing Ubuntu Desktop 18.04 and Spinnaker 1.27.0.48 SDK onto your LattePanda. It is meant to support image acquisition.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This is a guide to installing Ubuntu Desktop 18.04 and Spinnaker 1.27.0.48 SDK onto your LattePanda.
 
 ## Prerequisites
 
 These downloads can be either on your LOCAL COMPUTER and then use SCP to transfer them onto the remote computer, or can be downloaded straight onto the REMOTE COMPUTER.
 
-Option 1: Download correct versions and files for Ubuntu 18.04 and Spinnaker from IMT Lab Dropbox. Please download BalenaEtcher seperately.
-
-1. ubuntu-18.04.4-desktop-amd64.iso
-2. spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
-3. spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
-4. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
-
-Option 2: Follow links below to download files independently. Note, these links may lead to newer releases of the software and may cause issues during installation.
-
+**Download these files from these links.**
 1. Download Ubuntu Desktop 18.04.4 LTS from this [link](https://releases.ubuntu.com/18.04.4/).
-2. Download the Spinnaker for AMD64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
-3. Download the Python wrapper for Spinnaker for x86_64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
-4. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
+2. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
+
+
+**Spinnaker SDK Option 1:** Download Spinnaker 1.27.0.48 SDK installation files from IMT Lab Dropbox.
+
+1. spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
+2. spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
+
+**Spinnaker SDK Option 2:** Follow links below to download Spinnaker 1.27.0.48 SDK installation files independently. Note, these links may lead to newer releases of the software and may cause issues during installation.
+
+1. Download the Spinnaker for AMD64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
+2. Download the Python wrapper for Spinnaker for x86_64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
 
 
 ## Installing Ubuntu
@@ -149,6 +146,7 @@ conda activate spinnaker_py37
 sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 ```
 
+## Examples of Camera Acquisition Output
 ![Example Camera Acquisition Output 1](images/example_acquisition1.png)
 ![Example Camera Acquisition Output 2](images/example_acquisition2.png)
 
@@ -161,7 +159,7 @@ sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
 3. Don’t use sudo if not necessary
 4. May need to insert dummy HDMI plug if using headless for LattePanda.
 
-### System Notes
+## System Notes
 
 1. LattePanda architecture is AMD64 and x86_64
 2. When the camera is active it uses 3 Watts. (?CONFIRM?)
