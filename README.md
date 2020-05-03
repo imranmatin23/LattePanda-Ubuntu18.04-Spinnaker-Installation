@@ -1,7 +1,6 @@
-# Ubuntu Desktop 18.04 and Spinnaker SDK Installation on LattePanda Steps
+# Ubuntu Desktop 18.04 and Spinnaker 1.27.0.48 SDK Installation on LattePanda Steps
 
-This is a guide to installing Ubuntu Desktop 18.04 and Spinnaker SDK onto your LattePanda. It is meant to support
-image acquisition.
+This is a guide to installing Ubuntu Desktop 18.04 and Spinnaker 1.27.0.48 SDK onto your LattePanda. It is meant to support image acquisition.
 
 ## Getting Started
 
@@ -13,7 +12,10 @@ These downloads can be either on your LOCAL COMPUTER and then use SCP to transfe
 
 Option 1: Download correct versions and files for Ubuntu 18.04 and Spinnaker from IMT Lab Dropbox. Please download BalenaEtcher seperately.
 
-1. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
+1. ubuntu-18.04.4-desktop-amd64.iso
+2. spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
+3. spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
+4. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
 
 Option 2: Follow links below to download files independently. Note, these links may lead to newer releases of the software and may cause issues during installation.
 
