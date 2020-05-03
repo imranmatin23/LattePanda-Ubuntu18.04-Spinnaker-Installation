@@ -13,8 +13,8 @@ What things you need to install the software and how to install them. These down
 and then use SCP to transfer them onto the remote computer, or can be downloaded straight onto the remote computer.
 
 1. Download Ubuntu Desktop 18.04.4 LTS from this [link](https://releases.ubuntu.com/18.04.4/).
-3. Download the Spinnaker for AMD64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
-4. Download the Python wrapper for Spinnaker for x86_64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
+3. Download the Spinnaker for AMD64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK). It is located at Linux->Ubuntu18.04->beta-spinnaker-2.0.0.109-Ubuntu18.04-amd64-pkg.tar.gz
+4. Download the Python wrapper for Spinnaker for x86_64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK). It is located at Linux->Ubuntu18.04->python->x64->spinnaker_python-2.0.0.109-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
 5. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
 
 
