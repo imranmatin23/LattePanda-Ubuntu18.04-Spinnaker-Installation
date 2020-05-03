@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them. These downloads can be either on your local computer
 and then use SCP to transfer them onto the remote computer, or can be downloaded straight onto the remote computer.
 
-1. Download Ubuntu Desktop 18.04.4 LTS from this [link](https://ubuntu.com/download/desktop).
+1. Download Ubuntu Desktop 18.04.4 LTS from this [link](https://releases.ubuntu.com/18.04.4/).
 3. Download the Spinnaker for AMD64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
 4. Download the Python wrapper for Spinnaker for x86_64 package from this [link](https://flir.app.boxcn.net/v/SpinnakerSDK).
 5. Install BalenaEtcher from this [link](https://www.balena.io/etcher/).
@@ -37,6 +37,9 @@ A step by step guide that tell you how to install Ubuntu.
     - Set user credentials.
     - Select login automatically.
 8. Remove installation media when prompted.
+
+8.5. If you did not select "login automatically", a purple screen will appear. You need to enter your password even though it may not show the prompt. Once the password is entered, the Desktop with an orange background and beaver will appear. Press "CTRL-ALT-T" to open a terminal. Type the command below even if you do not see the terminal because your cursor will be already inside the terminal.
+
 9. To disable second output DSI use this command in the terminal.
 ```
 xrandr --output DSI-1 --off
