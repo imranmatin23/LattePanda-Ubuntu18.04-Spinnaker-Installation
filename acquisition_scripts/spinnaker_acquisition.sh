@@ -60,6 +60,6 @@ conda activate ${conda_env}
 python $script_loc/Acquisition.py
 
 printf "\nIf the camera could not start acquisition with error [-1010], run this command..."
-printf "\n$ sudo sh -c 'echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb'"
+printf "\n$ sudo sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'"
 printf "\nYou must be in the conda environment to acquire images..."
 printf "\nThe images have been acquired and can be found out $img_path/$img_directory. Thank you, goodbye.\n"
