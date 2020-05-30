@@ -38,6 +38,7 @@ This is a guide to installing Spinnaker 2.0.0.146 SDK onto your LattePanda. Note
 6. Enable the Spinnaker environment from Step 5 to automatically be activated by uncommenting the following lines in `startup.sh`. These changes will take effect on the next reboot.
     ```
     sudo sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+    
     . ~/anaconda3/etc/profile.d/conda.sh
     conda activate spinnaker_py37
     ```
