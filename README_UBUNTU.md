@@ -1,6 +1,6 @@
-# Ubuntu Desktop 18.04.4 LTS and Spinnaker 2.0.0.146 SDK Installation on LattePanda Steps
+# Ubuntu Desktop 18.04.4 LTS Installation on LattePanda
 
-This is a guide to installing Ubuntu Desktop 18.04.4 LTS and Spinnaker 2.0.0.146 SDK onto your LattePanda. Note that in this guide, local computer refers to the computer that you use regularly and LattePanda will refer to your actual LattePanda.
+This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. Note that in this guide, local computer refers to the computer that you use regularly and LattePanda will refer to your actual LattePanda.
 
 ### Prerequisites
 * Have 16GB+ of free space on your local computer.
@@ -14,7 +14,7 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS and Spinnaker 2.0.0.146
 ## Section 1: Installing Ubuntu 18.04.4 LTS
 
 ### Section 1.1: Perform these steps on your local computer.
-1. Download Ubuntu Desktop 18.04.4 LTS from Microsoft OneDrive.
+1. Download Ubuntu Desktop 18.04.4 LTS iso from Microsoft OneDrive.
 
 2. Install BalenaEtcher for your local computer OS from this [link](https://www.balena.io/etcher/).
 
@@ -79,55 +79,66 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS and Spinnaker 2.0.0.146
 17. Press "CTRL-ALT-T" to open a terminal. If this does not open a terminal on your screen, then right click on the screen and select "Open Terminal".
 
 18. Disable the second LattePanda output "DSI-1" by executing the following command in your terminal.
-```
-xrandr --output DSI-1 --off
-```
+    ```
+    xrandr --output DSI-1 --off
+    ```
 
 19. Install the software updates from the Software Updater, and follow the steps to complete the other windows. Restart the computer when prompted and perform Steps 16-18 again. 
 
 20. In the terminal, and execute the following commands to update and upgrade the system. If it fails, that means the system is running other apt update processes. Please wait until those complete it may take around 5 minutes, so continue trying the command every minute.
-```
-sudo apt update -y && sudo apt upgrade -y
-```
+    ```
+    sudo apt update -y && sudo apt upgrade -y
+    ```
 
 21. In the terminal, and execute the following commands to enable SSH.
-```
-sudo apt install openssh-server
-sudo systemctl enable ssh
-sudo systemctl status ssh
-sudo ufw allow ssh
-```
+    ```
+    sudo apt install openssh-server
+    sudo systemctl enable ssh
+    sudo systemctl status ssh
+    sudo ufw allow ssh
+    ```
 
-22. (Optional) Set up a static IP address for LattePanda. Follow [this guide](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/). Please follow the section that says "Configuring Static IP address on Ubuntu Desktop" on the lower part of the page. Make sure to open the SETTINGS application and not the SYSTEM SETTINGS application.
+22. Set up Ubuntu to automatically disable the LattePanda internal display upon startup. Begin by opening a terminal and running the following commands.
+    ```
+    # Install necessary Linux commands
+    sudo apt install git curl vim -y
+    # Move to the Desktop directory
+    cd Desktop/
+    # Clone this repo
+    git clone <repo>
+    ```
+* Click the grid icon on the bottom left corner of the screen. Search for *Startup Applications* and open it. Select *Add* and enter the following:
+    * Name: Startup Script
+    * Command: Select Browse and select the file `~/Desktop/[repo_name]/installation_scripts/startup.sh`
+    * Comment: Disables LattePanda internal display upon startup.
+* Complete the step by pressing *Add*. Now whenever you reboot, the LattePanda internal display will be disabled automatically.
+
+23. Install TeamViewer by running the following comands below in the terminal.
+    ```
+    wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+    sudo apt install ./teamviewer_amd64.deb
+    ```
+
+24. (Optional) Set up a static IP address for LattePanda. Follow [this guide](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/). Please follow the section that says "Configuring Static IP address on Ubuntu Desktop" on the lower part of the page. Make sure to open the SETTINGS application and not the SYSTEM SETTINGS application.
     * Change the X in all of the IP addresses 192.168.X.Y to the value that is currently there for your IP Address (ip address can be found using `ip address`)
     * Change the Y in all of the IP addresses 192.168.X.Y to what you would like for this system
     * Below are what need to be customized when setting up you systems static IP if you are confused.
-```
-IPv4 Method: Manual
-Address: 192.168.X.Y
-Netmask: 24
-Gateway: 192.168.X.1
-DNS: 8.8.8.8,1.1.1.1
-```
+    ```
+    IPv4 Method: Manual
+    Address: 192.168.X.Y
+    Netmask: 24
+    Gateway: 192.168.X.1
+    DNS: 8.8.8.8,1.1.1.1
+    ```
 
-23. Set up Ubuntu to automatically disable the LattePanda internal display upon startup. Begin by opening a terminal and running the following commands.
-```
-cd Desktop/
-git clone <repo>
-```
-* Click the grid icon on the bottom left corner of the screen. Search for *Startup Applications* and open it. Select *Add*, 
-
-
-
-
-
+25. You have now completed the installation of Ubuntu!
 
 ### Potential Errors
 * TODO
     * Write guides to reformat USB on MacOS, Windows, and Linux before installing .iso if it doesn't show up in BalenaEtcher, Section 1.1: Step 4
     * Jittery Mouse, Section 1.2: Step 12
     * Purple Login Screen, Section 1.2: Step 16
-    
+    * Link Ubuntu Download link
 
 * DONE
     * Explain BalenaEtcher USB Initialization error message, Section 1.1: Step 4
