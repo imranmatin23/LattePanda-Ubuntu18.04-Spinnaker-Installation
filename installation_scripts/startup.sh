@@ -11,5 +11,6 @@ xrandr --output DSI-1 --off
 # conda activate spinnaker_py37
 
 # Run the camera acquisition
-# cd /home/$USER/Desktop/waveglider-coms
+# NOTE: CHANGE REPO NAME BELOW
+# cd /home/$USER/Desktop/[REPO]
 # python cSBC.py
