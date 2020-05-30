@@ -52,14 +52,10 @@ This is a guide to installing Spinnaker 2.0.0.146 SDK onto your LattePanda. Note
     ```
     sudo reboot
     ```
-9. 
 
-# FIX
-9. Activate the Anaconda Spinnaker environment to use the correct Python packages and versions. Confirm the camera is plugged into the black USB2.0 port and has a flashing green light. Begin acquiring images. 
-```
-conda activate spinnaker_py37
-sh spinnaker_acquisition.sh < spinnaker_acquisition_inputs.txt
-```
+9. Test the installation worked by running... TODO
+
+10. If Step 9 was successful, then you can begin acquiring images!
 
 
 ## Errors

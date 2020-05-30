@@ -1,18 +1,15 @@
 #!/bin/sh
 
-# NOTE: Uncomment code and change variable conda_env to allow for user input of conda environment name
-# Only way to automate this script is to download the Spinnaker files from Dropbox in the script
-
 ### LATTEPANDA FILES ###
 # Spinnaker SDK file to download
-spinnaker_file=spinnaker-1.27.0.48-Ubuntu18.04-amd64-pkg.tar.gz
+spinnaker_file=spinnaker-2.0.0.146-amd64-pkg.tar.gz
 
 # Spinnaker Python Wrapper file to download
-python_spinnaker_file=spinnaker_python-1.27.0.48-Ubuntu18.04-cp37-cp37m-linux_x86_64.tar.gz
-python_spinnaker_whl=spinnaker_python-1.27.0.48-cp37-cp37m-linux_x86_64.whl
+python_spinnaker_file=spinnaker_python-2.0.0.146-cp37-cp37m-linux_x86_64.tar.gz
+python_spinnaker_whl=spinnaker_python-2.0.0.146-cp37-cp37m-linux_x86_64.whl
 
 # Unzipped Spinnaker SDK folder
-spinnaker_folder=spinnaker-1.27.0.48-amd64
+spinnaker_folder=spinnaker-2.0.0.146-amd64
 python_spinnaker_folder=python37-spinnaker
 
 # Default conda environment
@@ -21,19 +18,6 @@ conda_env=spinnaker_py37
 printf "This script will install the Spinnaker SDK and it's Python wrapper.\n"
 printf "It is meant for Ubuntu 18.04 and Python3.7 on AMD64/x86 or ARM64/aarch64 architecture.\n"
 printf "Please have a Python3.7 conda environment ready and the files downloaded as well as the paths to them.\n"
-
-######### Validate location to save the images and where script is  ###########
-
-# Get name of conda environment for spinnaker
-# printf "\nWhat is the name of the conda environment for Spinnaker? For example: 'spinnaker_py37'?\n"
-# read -p ">> " conda_env
-
-# check if path is not empty string
-# if [ -z "$conda_env" ]
-# then
-#   echo "This path is an empty string."
-#   exit 1
-# fi
 
 ######### VALIDATE USER IS SETUP TO INSTALL SPINNAKER ###########
 # activate the conda environment
@@ -124,6 +108,10 @@ conda install matplotlib -y
 printf "\nInstall Pillow...\n"
 conda install Pillow -y
 
+printf "\nInstall OpenCV...\n"
+conda remove opencv -y
+conda install -c conda-forge opencv=4.1.0 -y
+
 printf "\nInstall Spinnaker Python wrapper from .whl...\n"
 cd $unzip_loc/${python_spinnaker_folder}/
 pip install $unzip_loc/${python_spinnaker_folder}/${python_spinnaker_whl}
@@ -132,7 +120,11 @@ printf "\nConfirm that PySpin module was correctly installed, it should exit sil
 python -c 'import PySpin'
 
 printf "\nExpand memory limit to allow for camera to open..."
-sudo echo 256 > /sys/module/usbcore/parameters/usbfs_memory_mb
+sudo sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+
+printf "\nCloning the EasyPySpin repository...\n"
+cd ..
+git submodule add https://github.com/elerac/EasyPySpin.git
 
 printf "\nSpinnaker Python wrapper is installed."
 printf "\nAnaconda, the conda environment for Spinnaker, and Spinnaker have been installed successfully...."

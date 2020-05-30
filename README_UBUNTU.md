@@ -22,7 +22,7 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. N
 
 4. Burn the Ubuntu .iso that you downloaded from Step 1 onto the USB using BalenaEtcher, the tool that you downloaded in Step 2. Press *Select image* and locate the Ubuntu .iso that you downloaded in Step 1. Press *Select target* and locate the USB drive that you have inserted (It may be /dev/disk2, but confirm the size of the disk matches to make sure). Then select *Flash*.
 
-    *  NOTE: If the USB does not show up when you select *Select Target*, you must erase and reformat the USB to FAT32 first. A guide for how to do this can be found in [guides](./guides). Once this is done, repeat Step 4.
+    *  NOTE: If the USB does not show up when you select *Select Target*, you must erase and reformat the USB to FAT32 first. Once this is done, repeat Step 4.
 
     * NOTE: Once BalenaEtcher finishes with USB, an error about the USB may come up saying *"The disk you inserted was not readable by this computer."* Go ahead and ignore it by pressing ignore.
 
@@ -74,7 +74,9 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. N
 15. When the installation is complete popup displays, select *Restart Now*. Remove the USB after you have done this.
 
 16. Please skip this step if the orange Ubuntu Desktop with the Beaver in the background is displayed.
-    *  If you did not select "login automatically", a purple screen will appear. You need to enter your password even though it may not show the prompt. Once the password is entered, the Desktop with an orange background and beaver will appear. 
+    * If you did not select "login automatically", then either the current time on an orange background or a purple screen will appear. 
+    * If the current time on an orange background appears, press the space bar once and that will bring up a purple screen. 
+    * When the purple screen is displayed, you need to enter your password even though it may not show the prompt. Once the password is entered, the Desktop with an orange background and beaver will appear.
 
 17. Press "CTRL-ALT-T" to open a terminal. If this does not open a terminal on your screen, then right click on the screen and select "Open Terminal".
 
@@ -83,22 +85,9 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. N
     xrandr --output DSI-1 --off
     ```
 
-19. Install the software updates from the Software Updater, and follow the steps to complete the other windows. Restart the computer when prompted and perform Steps 16-18 again. 
+20. Close all pop ups that show up on the screen. 
 
-20. In the terminal, and execute the following commands to update and upgrade the system. If it fails, that means the system is running other apt update processes. Please wait until those complete it may take around 5 minutes, so continue trying the command every minute.
-    ```
-    sudo apt update -y && sudo apt upgrade -y
-    ```
-
-21. In the terminal, and execute the following commands to enable SSH.
-    ```
-    sudo apt install openssh-server
-    sudo systemctl enable ssh
-    sudo systemctl status ssh
-    sudo ufw allow ssh
-    ```
-
-22. Set up Ubuntu to automatically disable the LattePanda internal display upon startup. Begin by opening a terminal and running the following commands.
+21. Set up Ubuntu to automatically disable the LattePanda internal display upon startup. Begin by opening a terminal and running the following commands.
     ```
     # Install necessary Linux commands
     sudo apt install git curl vim -y
@@ -113,13 +102,26 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. N
     * Comment: Disables LattePanda internal display upon startup.
 * Complete the step by pressing *Add*. Now whenever you reboot, the LattePanda internal display will be disabled automatically.
 
-23. Install TeamViewer by running the following comands below in the terminal.
+22. In the terminal, and execute the following commands to update and upgrade the system. If it fails, that means the system is running other apt update processes. Please wait until those complete it may take around 5 minutes, so continue trying the command every minute.
+    ```
+    sudo apt update -y && sudo apt upgrade -y
+    ```
+
+23. In the terminal, and execute the following commands to enable SSH.
+    ```
+    sudo apt install openssh-server
+    sudo systemctl enable ssh
+    sudo systemctl status ssh
+    sudo ufw allow ssh
+    ```
+
+24. Install TeamViewer by running the following comands below in the terminal.
     ```
     wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
     sudo apt install ./teamviewer_amd64.deb
     ```
 
-24. (Optional) Set up a static IP address for LattePanda. Follow [this guide](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/). Please follow the section that says "Configuring Static IP address on Ubuntu Desktop" on the lower part of the page. Make sure to open the SETTINGS application and not the SYSTEM SETTINGS application.
+25. (Optional) Set up a static IP address for LattePanda. Follow [this guide](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/). Please follow the section that says "Configuring Static IP address on Ubuntu Desktop" on the lower part of the page. Make sure to open the SETTINGS application and not the SYSTEM SETTINGS application.
     * Change the X in all of the IP addresses 192.168.X.Y to the value that is currently there for your IP Address (ip address can be found using `ip address`)
     * Change the Y in all of the IP addresses 192.168.X.Y to what you would like for this system
     * Below are what need to be customized when setting up you systems static IP if you are confused.
@@ -131,24 +133,18 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. N
     DNS: 8.8.8.8,1.1.1.1
     ```
 
-25. You have now completed the installation of Ubuntu!
+26. You have now completed the installation of Ubuntu!
 
 
 ## Extra Notes
 * Follow links below to download Ubuntu Desktop 18.04.4 LTS installation files independently. Note, these links may lead to newer releases of the software and may cause issues during installation.
     * Download Ubuntu Desktop 18.04.4 LTS from this [link](https://releases.ubuntu.com/18.04.4/).
-
-
-### Potential Errors
-* TODO
-    * Write guides to reformat USB on MacOS, Windows, and Linux before installing .iso if it doesn't show up in BalenaEtcher, Section 1.1: Step 4
-    * Jittery Mouse, Section 1.2: Step 12
-    * Purple Login Screen, Section 1.2: Step 16
-
-* DONE
+* Other Notes
     * Explain BalenaEtcher USB Initialization error message, Section 1.1: Step 4
     * USB Drive name in BalenaEtcher is unclear Section 1.1: Step 4
     * LattePanda boot up process (buttons/timing), Section 1.2: Step 5-6
     * Changing Machine Status AC/Battery In to disable power buttons, Section 1.2: Step 9
     * USB Drive name in the BIOS is unclear Section 1.2: Step 11
+    * Purple Login Screen, Section 1.2: Step 16
     * DSI-1 Second Display Section 1.2: Step 13, 16-18
+    * Jittery Mouse, Section 1.2: Step 12
