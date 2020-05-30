@@ -30,7 +30,7 @@ A step by step guide that tell you how to install Ubuntu.
 
 1. Burn the .iso onto USB using BalenaEtcher.
 2. Insert USB into LattePanda.
-3. Press ESC upon boothup to enter BIOS.
+3. Press ESC upon boot up to enter BIOS.
 4. Boot from the USB drive (usually says name).
 5. Choose to install Ubuntu.
     - IMPORTANT: If the Ubuntu Desktop only shows up, then the internal display is enabled. What that means is the HDMI port and the internal display are side by side. You will have to find out which edge will allow the mouse to disappear. Then you must try to grab the installation window from the internal display and drag it onto the monitor.
@@ -57,7 +57,7 @@ sudo systemctl enable ssh
 sudo systemctl status ssh
 sudo ufw allow ssh
 ```
-11. Set up a static IP address for LattePanda. Follow [this guide](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/). Please follow the section thtat says "Configuring Static IP address on Ubuntu Desktop" on the lower part of the page. Make sure to open the SETTINGS application and not the SYSTEM SETTINGS application.
+11. Set up a static IP address for LattePanda. Follow [this guide](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/). Please follow the section that says "Configuring Static IP address on Ubuntu Desktop" on the lower part of the page. Make sure to open the SETTINGS application and not the SYSTEM SETTINGS application.
     * Change the X in all of the IP addresses 192.168.X.Y to the value that is currently there for your IP Address (ip address can be found using `ip address`)
     * Change the Y in all of the IP addresses 192.168.X.Y to what you would like for this system
     * Below are what need to be customized when setting up you systems static IP if you are confused.
