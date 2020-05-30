@@ -133,12 +133,17 @@ This is a guide to installing Ubuntu Desktop 18.04.4 LTS onto your LattePanda. N
 
 25. You have now completed the installation of Ubuntu!
 
+
+## Extra Notes
+* Follow links below to download Ubuntu Desktop 18.04.4 LTS installation files independently. Note, these links may lead to newer releases of the software and may cause issues during installation.
+    * Download Ubuntu Desktop 18.04.4 LTS from this [link](https://releases.ubuntu.com/18.04.4/).
+
+
 ### Potential Errors
 * TODO
     * Write guides to reformat USB on MacOS, Windows, and Linux before installing .iso if it doesn't show up in BalenaEtcher, Section 1.1: Step 4
     * Jittery Mouse, Section 1.2: Step 12
     * Purple Login Screen, Section 1.2: Step 16
-    * Link Ubuntu Download link
 
 * DONE
     * Explain BalenaEtcher USB Initialization error message, Section 1.1: Step 4
