@@ -1,4 +1,10 @@
 #!/bin/sh
+# 
+# Installation script for creating the conda environment for Spinnaker with Python 3.7.
+#
+# Author: Imran Matin
+# Email: imatin@ucsd.edu
+#
 
 # Environment name
 env_name=spinnaker_py37

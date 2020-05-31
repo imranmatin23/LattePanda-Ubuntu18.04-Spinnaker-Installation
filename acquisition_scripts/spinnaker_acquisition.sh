@@ -1,4 +1,12 @@
 #!/bin/sh
+# 
+# Wrapper that runs the Acquisition.py script provided by Spinnaker.
+#
+# Creates a new directory where the images captured by the script are stored.
+#
+# Author: Imran Matin
+# Email: imatin@ucsd.edu
+#
 
 conda_env=spinnaker_py37
 

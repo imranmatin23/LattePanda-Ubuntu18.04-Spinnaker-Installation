@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/bin/sh
+# 
+# Disables display upon startup, increases Linux USB memory, activates the conda environment, and runs the cSBC.py file
+#
+# Author: Imran Matin
+# Email: imatin@ucsd.edu
+#
 
 # Turn of DSI-1 LP internal display
 xrandr --output DSI-1 --off

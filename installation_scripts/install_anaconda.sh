@@ -1,4 +1,10 @@
 #!/bin/sh
+# 
+# Installation script for Anaconda.
+#
+# Author: Imran Matin
+# Email: imatin@ucsd.edu
+#
 
 # Version of anaconda to install
 anaconda_script=Anaconda3-2019.10-Linux-x86_64.sh

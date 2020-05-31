@@ -1,4 +1,13 @@
 #!/bin/sh
+# 
+# Installation script for Spinnaker, both regular and Python.
+#
+# Takes in user input for the location of the installation file and the destination, and installs it on the system.
+# Installs the necessary dependencies for the conda environment as well
+#
+# Author: Imran Matin
+# Email: imatin@ucsd.edu
+#
 
 ### LATTEPANDA FILES ###
 # Spinnaker SDK file to download
