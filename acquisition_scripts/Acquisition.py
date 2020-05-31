@@ -31,8 +31,8 @@
 # AcquisitionMultipleCamera demonstrates simultaneously acquiring images from
 # a number of cameras, NodeMapCallback serves as a good introduction to
 # programming with callbacks and events, and SaveToAvi exhibits video creation.
-import pyspin
-from pyspin import PySpin
+
+import PySpin
 import numpy as np
 
 NUM_IMAGES = 1  # number of images to grab
