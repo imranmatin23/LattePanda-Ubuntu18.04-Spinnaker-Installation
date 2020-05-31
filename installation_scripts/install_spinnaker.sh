@@ -38,7 +38,7 @@ elif [ "$user_input" = "no" ]; then
 fi
 
 # Get location of downloaded files
-printf "\nWhere did you download the files from above? Please enter an absolute path such as '/home/imran/Downloads'\n"
+printf "\nWhere did you download the files from above? Please enter an absolute path such as '/home/imt/Downloads'\n"
 read -p ">> " download_loc
 
 # check if path is not empty string
@@ -55,7 +55,7 @@ then
 fi
 
 # Get location to save unzipped files
-printf "\nWhere would you like to save those files? Please enter an absolute path such as '/home/imran/Desktop'\n"
+printf "\nWhere would you like to save those files? Please enter an absolute path such as '/home/imt/Desktop'\n"
 read -p ">> " unzip_loc
 
 #check if path is not empty string
@@ -122,9 +122,9 @@ python -c 'import PySpin'
 printf "\nExpand memory limit to allow for camera to open..."
 sudo sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'
 
-printf "\nCloning the EasyPySpin repository...\n"
-cd ..
-git submodule add https://github.com/elerac/EasyPySpin.git
+# printf "\nCloning the EasyPySpin repository...\n"
+# cd ..
+# git submodule add https://github.com/elerac/EasyPySpin.git
 
 printf "\nSpinnaker Python wrapper is installed."
 printf "\nAnaconda, the conda environment for Spinnaker, and Spinnaker have been installed successfully...."

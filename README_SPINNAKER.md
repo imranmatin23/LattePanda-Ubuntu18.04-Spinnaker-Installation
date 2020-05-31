@@ -10,7 +10,7 @@ This is a guide to installing Spinnaker 2.0.0.146 SDK onto your LattePanda. Note
 ## Section 1: Installing Spinnaker 2.0.0.146 SDK
 
 ### Section 1.1: Perform these steps on your LattePanda.
-1. Download the required Spinnaker SDK files from Microsoft OneDrive into your Downloads Folder.
+1. Download the required Spinnaker SDK files from Microsoft OneDrive into your `~/Downloads` Folder.
     * spinnaker-2.0.0.146-amd64-pkg.tar.gz
     * spinnaker_python-2.0.0.146-cp37-cp37m-linux_x86_64.tar.gz
 
@@ -25,37 +25,53 @@ This is a guide to installing Spinnaker 2.0.0.146 SDK onto your LattePanda. Note
     git clone <repo>
     ```
 
-4. Install Anaconda to handle the Python environment for the LattePanda.
+4. Install Anaconda to handle the Python environment for the LattePanda. Press Enter when prompted. Accept the license terms by pressing `q` and then entering `yes`. Press enter to accept the default installation location. Enter `yes` to initialize conda.
     ```
+    cd <repo>/installation_scripts
     sh install_anaconda.sh && exit
     ```
 
-5. Create a new Anaconda Spinnaker Python environment. This is necessary to install the correct versions of all the Python Packages used by Spinnaker.
+5. Open a new terminal. Create a new Anaconda Spinnaker Python environment. This is necessary to install the correct versions of all the Python Packages used by Spinnaker.
     ```
+    cd ~/Desktop/<repo>/installation_scripts
     sh create_spinnaker_env.sh
     ```
 
 6. Enable the Spinnaker environment from Step 5 to automatically be activated by uncommenting the following lines in `startup.sh`. These changes will take effect on the next reboot.
     ```
+    # Use the text editor vim to edit the file
+    vim ~/Desktop/<repo>/installation_scripts/startup.sh
+
+    # Uncomment these lines
     sudo sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'
-    
     . ~/anaconda3/etc/profile.d/conda.sh
     conda activate spinnaker_py37
     ```
 
-7. Install Spinnaker and follow onscreen instructions.
+7. In the terminal, execute the commands to set the base conda environment to be the Spinnaker environment we created in Step 5.
     ```
+    conda config --set auto_activate_base false
+    echo "conda activate spinnaker_py37" >> ~/.bashrc
+    ```
+
+8. Install Spinnaker and follow onscreen instructions. Make sure to add your user to the flir imaging group when prompted.
+    ```
+    cd ~/Desktop/<repo>/installation_scripts
     sh install_spinnaker.sh
     ```
 
-8. Reboot the LattePanda.
+9. Reboot the LattePanda.
     ```
     sudo reboot
     ```
 
-9. Test the installation worked by running... TODO
+10. Test the installation worked by running the commands below.
+    ```
+    cd ~/Desktop/<repo>/acquisition_scripts
+    sh spinnaker_acquistion.sh
+    ```
 
-10. If Step 9 was successful, then you can begin acquiring images!
+11. If Step 10 was successful, then you have successfully acquired images!
 
 
 ## Errors

@@ -52,7 +52,7 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
     :rtype: bool
     """
 
-    print "*** IMAGE ACQUISITION ***\n"
+    print("*** IMAGE ACQUISITION ***\n")
     try:
         result = True
 
@@ -86,7 +86,9 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
         if not PySpin.IsAvailable(node_acquisition_mode) or not PySpin.IsWritable(
             node_acquisition_mode
         ):
-            print "Unable to set acquisition mode to continuous (enum retrieval). Aborting..."
+            print(
+                "Unable to set acquisition mode to continuous (enum retrieval). Aborting..."
+            )
             return False
 
         # Retrieve entry node from enumeration node
@@ -96,7 +98,9 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
         if not PySpin.IsAvailable(
             node_acquisition_mode_continuous
         ) or not PySpin.IsReadable(node_acquisition_mode_continuous):
-            print "Unable to set acquisition mode to continuous (entry retrieval). Aborting..."
+            print(
+                "Unable to set acquisition mode to continuous (entry retrieval). Aborting..."
+            )
             return False
 
         # Retrieve integer value from entry node
@@ -105,7 +109,7 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
         # Set integer value from entry node as new value of enumeration node
         node_acquisition_mode.SetIntValue(acquisition_mode_continuous)
 
-        print "Acquisition mode set to continuous..."
+        print("Acquisition mode set to continuous...")
 
         #  Begin acquiring images
         #
@@ -120,7 +124,7 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
         #  Image acquisition must be ended when no more images are needed.
         cam.BeginAcquisition()
 
-        print "Acquiring images..."
+        print("Acquiring images...")
 
         #  Retrieve device serial number for filename
         #
@@ -136,7 +140,7 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
             node_device_serial_number
         ):
             device_serial_number = node_device_serial_number.GetValue()
-            print "Device serial number retrieved as %s..." % device_serial_number
+            print("Device serial number retrieved as %s..." % device_serial_number)
 
         # Retrieve, convert, and save images
         for i in range(NUM_IMAGES):
@@ -162,7 +166,10 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
                 #  Further, check image status for a little more insight into
                 #  why an image is incomplete.
                 if image_result.IsIncomplete():
-                    print "Image incomplete with image status %d ..." % image_result.GetImageStatus()
+                    print(
+                        "Image incomplete with image status %d ..."
+                        % image_result.GetImageStatus()
+                    )
 
                 else:
 
@@ -174,10 +181,9 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
                     #  name a few.
                     width = image_result.GetWidth()
                     height = image_result.GetHeight()
-                    print "Grabbed Image %d, width = %d, height = %d" % (
-                        i,
-                        width,
-                        height,
+                    print(
+                        "Grabbed Image %d, width = %d, height = %d"
+                        % (i, width, height,)
                     )
 
                     #  Convert image to mono 8
@@ -199,9 +205,9 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
                         filename = "Acquisition-%s-%d.jpg" % (device_serial_number, i)
                     else:  # if serial number is empty
                         filename = "Acquisition-%d.jpg" % i
-                    print " \/ "
+                    print(" \/ ")
                     data = np.asarray(image_result, dtype="int32")
-                    print type(data)
+                    print(type(data))
                     #  Save image
                     #
                     #  *** NOTES ***
@@ -209,7 +215,7 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
                     #  serial numbers to keep images of one device from
                     #  overwriting those of another.
                     image_converted.Save(filename)
-                    print "Image saved at %s" % filename
+                    print("Image saved at %s" % filename)
 
                     #  Release image
                     #
@@ -218,10 +224,10 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
                     #  images) need to be released in order to keep from filling the
                     #  buffer.
                     image_result.Release()
-                    print ""
+                    print("")
 
             except PySpin.SpinnakerException as ex:
-                print "Error: %s" % ex
+                print("Error: %s" % ex)
                 return False
 
         #  End acquisition
@@ -232,7 +238,7 @@ def acquire_images(cam, nodemap, nodemap_tldevice):
         cam.EndAcquisition()
 
     except PySpin.SpinnakerException as ex:
-        print "Error: %s" % ex
+        print("Error: %s" % ex)
         return False
 
     return result
@@ -250,7 +256,7 @@ def print_device_info(nodemap):
     :rtype: bool
     """
 
-    print "*** DEVICE INFORMATION ***\n"
+    print("*** DEVICE INFORMATION ***\n")
 
     try:
         result = True
@@ -264,18 +270,21 @@ def print_device_info(nodemap):
             features = node_device_information.GetFeatures()
             for feature in features:
                 node_feature = PySpin.CValuePtr(feature)
-                print "%s: %s" % (
-                    node_feature.GetName(),
-                    node_feature.ToString()
-                    if PySpin.IsReadable(node_feature)
-                    else "Node not readable",
+                print(
+                    "%s: %s"
+                    % (
+                        node_feature.GetName(),
+                        node_feature.ToString()
+                        if PySpin.IsReadable(node_feature)
+                        else "Node not readable",
+                    )
                 )
 
         else:
-            print "Device control information not available."
+            print("Device control information not available.")
 
     except PySpin.SpinnakerException as ex:
-        print "Error: %s" % ex
+        print("Error: %s" % ex)
         return False
 
     return result
@@ -312,7 +321,7 @@ def run_single_camera(cam):
         cam.DeInit()
 
     except PySpin.SpinnakerException as ex:
-        print "Error: %s" % ex
+        print("Error: %s" % ex)
         result = False
 
     return result
@@ -334,7 +343,7 @@ def main():
 
     num_cameras = cam_list.GetSize()
 
-    print "Number of cameras detected: %d" % num_cameras
+    print("Number of cameras detected: %d" % num_cameras)
 
     # Finish if there are no cameras
     if num_cameras == 0:
@@ -345,18 +354,18 @@ def main():
         # Release system
         system.ReleaseInstance()
 
-        print "Not enough cameras!"
-        raw_input("Done! Press Enter to exit...")
+        print("Not enough cameras!")
+        input("Done! Press Enter to exit...")
         return False
 
     # Run example on each camera
     for i in range(num_cameras):
         cam = cam_list.GetByIndex(i)
 
-        print "Running example for camera %d..." % i
+        print("Running example for camera %d..." % i)
 
         result = run_single_camera(cam)
-        print "Camera %d example complete..." % i
+        print("Camera %d example complete..." % i)
 
     # Release reference to camera
     # NOTE: Unlike the C++ examples, we cannot rely on pointer objects being automatically
@@ -370,7 +379,7 @@ def main():
     # Release instance
     system.ReleaseInstance()
 
-    raw_input("Done! Press Enter to exit...")
+    input("Done! Press Enter to exit...")
     return result
 
 
